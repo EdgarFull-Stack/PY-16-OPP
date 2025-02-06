@@ -97,3 +97,34 @@ class RaudonasMygtukas(Mygtukas):
     def deaktyvuoti(self):
         super().deaktyvuoti()
         print("Spalva pasikeitė į rausvą")
+print('-'*40)
+# Example
+import datetime
+import pickle
+class House:
+    def __init__(self, price, year):
+        self.price = price
+        self.year = year
+
+    def get_age(self):
+        now = datetime.datetime.today()
+        current_year = now.year
+        return current_year - self.year
+
+    def __str__(self):
+        return f"Namas {self.year} pastatymo, kaina - {self.price}, amžius - {self.get_age()}"
+
+try:
+    with open("namai.pickle", mode="rb") as f:
+        houses_kaupiklis = pickle.load(f)
+except:
+    houses_kaupiklis = []
+#
+new_house = House(price=190000, year=2024)
+houses_kaupiklis.append(new_house)
+#
+with open('namai.pickle', mode='wb') as f:
+    pickle.dump(houses_kaupiklis, f)
+
+for h in houses_kaupiklis:
+    print(h)
