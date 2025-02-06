@@ -72,7 +72,28 @@ for i in stck.data:
     print(i)
 print('-'*20)
 print(a)
+print('-'*40)
+# Example
+class Asmuo:
+    def __init__(self, vardas, pavarde, gim_metai):
+        self.vardas = vardas
+        self.pavarde = pavarde
+        self.gim_metai = gim_metai
 
+class MokinioTevas(Asmuo):
+    def __init__(self, vardas, pavarde, gim_metai, darboviete):
+        super().__init__(vardas, pavarde, gim_metai)
+        self.darboviete = darboviete
+tevas = MokinioTevas(1, 2 ,3 ,4)
+print(tevas.vardas)
+print(tevas.pavarde)
+print('-'*40)
+# Example
+class Mygtukas:
+    def deaktyvuoti(self):
+        print("Mygtukas deaktyvuotas")
 
-
-
+class RaudonasMygtukas(Mygtukas):
+    def deaktyvuoti(self):
+        super().deaktyvuoti()
+        print("Spalva pasikeitė į rausvą")
